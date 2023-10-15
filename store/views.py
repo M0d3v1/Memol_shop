@@ -3,7 +3,8 @@ from .models import CustomUser, Product
 from .serializers import CustomUserSerializer, ProductSerializer
 from rest_framework.response import Response
 from rest_framework import status
-
+from django.views.generic import TemplateView
+from django.shortcuts import render
 # User Registration View
 class UserRegistrationView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
@@ -44,3 +45,8 @@ class ProductDeleteView(generics.DestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.IsAuthenticated]
+class HomeView(TemplateView):
+    template_name = 'home.html'
+    
+def Home(request):
+    return render(request, 'store/home.html')

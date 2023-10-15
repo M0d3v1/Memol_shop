@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 from rest_framework.authtoken.models import Token
 
 class CustomUserManager(BaseUserManager):
@@ -16,7 +16,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
-
+    
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30)
@@ -24,6 +24,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=15, unique=True )  # Add phone number field
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default =False)
+    groups = models.ManyToManyField(Group, related_name='customuser_set')
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name=('user permissions'),
+        blank=True,
+        help_text=('Specific permissions for this user.'),
+        related_name='customuser_set',
+    )
 
     objects = CustomUserManager()
 

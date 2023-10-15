@@ -1,0 +1,83 @@
+{% extends "store/navbar.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine Shades - Your Sunglasses Superstore</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/styles.css' %}">
+</head>
+{% block content %}
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">Sunshine Shades</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="cart">
+                <a href="/cart">Cart</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Style</h1>
+            <p>Explore our collection of stylish sunglasses.</p>
+            <a href="/shop" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-card">
+            <img src="sunglasses1.jpg" alt="Sunglasses Model 1">
+            <h3>Sunglasses Model 1</h3>
+            <p>High-quality UV protection.</p>
+            <span class="price">$39.99</span>
+            <a href="/shop/product1" class="cta-button">View Details</a>
+        </div>
+        <div class="product-card">
+            <img src="sunglasses2.jpg" alt="Sunglasses Model 2">
+            <h3>Sunglasses Model 2</h3>
+            <p>Polarized lenses for clear vision.</p>
+            <span class="price">$49.99</span>
+            <a href="/shop/product2" class="cta-button">View Details</a>
+        </div>
+        <!-- Add more product cards as needed -->
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h2>About Us</h2>
+        <p>We are passionate about delivering the trendiest sunglasses to your doorstep. With a focus on style, quality, and UV protection, we've got you covered.</p>
+        <a href="/about" class="cta-button">Learn More</a>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-us">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, our customer support team is here to help. Contact us anytime!</p>
+        <a href="/contact" class="cta-button">Contact Us</a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Sunshine Shades. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+{% endblock %}
+
+</html>
